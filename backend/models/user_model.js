@@ -12,7 +12,18 @@ const User_module= new mongoose.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    raise:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"donation"
+    }],
+    donated:[ {type:mongoose.Schema.Types.ObjectId,
+        ref:"donation"}],
+    total:{
+        type:Number,
+        default:0
+    }    
+
 })
 
 module.exports=mongoose.model("User",User_module)
